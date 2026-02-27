@@ -106,6 +106,12 @@ FISC統制基準は、金融機関等の経営層・管理者が果たすべきI
 | 統11 | 防犯組織の整備 | 物理セキュリティ（Azure データセンターで対応） |
 | 統12 | 各種業務規則の整備 | Azure Policy、Compliance Manager |
 | 統13 | セキュリティ遵守状況の確認 | Microsoft Defender for Cloud（規制コンプライアンス） |
+| 統14 | システム運用計画の策定 | Azure Monitor、Azure Automation、Azure Advisor |
+| 統15 | セキュリティ要件の明確化 | Azure Policy、Microsoft Defender for Cloud |
+| 統16 | 情報セキュリティ教育・研修 | Microsoft Learn、Security Awareness Training |
+| 統17 | 要員管理 | Microsoft Entra ID Governance（ライフサイクル管理） |
+| 統18 | 業務委託時のセキュリティ | Microsoft Service Trust Portal、Azure SLA |
+| 統19 | 要員の健康管理 | — （組織管理事項、Azure サービス対象外） |
 
 ## 3. 外部委託管理（統20〜統23）
 
@@ -126,6 +132,13 @@ FISC統制基準は、金融機関等の経営層・管理者が果たすべきI
 - **Microsoft Product Terms / DPA** — データ処理契約（DPA）によるデータ保護義務の明確化
 - **Azure のデータ所在地保証** — 日本リージョン（東日本・西日本）でのデータ所在地の保証
 
+### 統22: 外部委託先の再委託管理
+**FISC要件**: 外部委託先の再委託に関する管理を行うこと。
+**Azure対応**:
+- **Microsoft サブプロセッサーリスト** — Microsoft が利用するサブプロセッサーの公開リスト
+- **Microsoft DPA（データ処理契約）** — 再委託先に対する同等のデータ保護義務の課徴
+- **Microsoft Service Trust Portal** — サブプロセッサーの監査情報の確認
+
 ### 統23: 外部委託管理体制と遂行状況確認
 
 **FISC要件**: 外部委託における管理体制を整備し、委託業務の遂行状況を確認すること。
@@ -134,6 +147,30 @@ FISC統制基準は、金融機関等の経営層・管理者が果たすべきI
 - **Azure Service Health** — サービス正常性の監視
 - **Azure Monitor** — SLA達成状況の監視・レポート
 - **Microsoft Defender for Cloud** — セキュリティ態勢の継続的な評価
+
+## 4. FinTech等連携管理（統25〜統27）
+
+### 統25: FinTech企業等との連携に係る安全対策
+**FISC要件**: FinTech企業等との連携に際し、安全対策を講ずること。
+**Azure対応**:
+- **Azure API Management** — API ゲートウェイによる FinTech 企業との安全な API 連携
+- **Microsoft Entra External ID** — 外部事業者の ID 管理・認証
+- **Azure Front Door WAF** — API エンドポイントの保護
+
+### 統26: FinTech企業等が提供するサービスの安全性確認
+**FISC要件**: FinTech企業等が提供するサービスの安全性を確認すること。
+**Azure対応**:
+- **Microsoft Defender for Cloud Apps** — サードパーティ SaaS のリスク評価・監視
+- **Azure Policy** — 接続先サービスのコンプライアンス要件の定義
+
+### 統27: FinTech企業等との関係における利用者保護
+**FISC要件**: FinTech企業等との連携における利用者保護策を講ずること。
+**Azure対応**:
+- **Azure Front Door WAF** — 顧客向けエンドポイントの保護
+- **Azure API Management** — レート制限・認証によるAPI不正利用防止
+- **Microsoft Sentinel** — FinTech 連携経由の異常取引検知
+
+> **Note**: 統24（クラウドサービス固有のリスク対策）及び統28（サプライチェーンセキュリティ）は [07. クラウドガバナンス](07-cloud-governance.md) で詳述しています。
 
 ## 参考リンク
 
