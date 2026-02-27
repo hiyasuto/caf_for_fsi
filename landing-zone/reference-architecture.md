@@ -14,39 +14,39 @@
 
 | システム | 重要度 | FISC外部性 | ドキュメント |
 |---------|-------|-----------|------------|
-| 勘定系（コアバンキング） | Tier 1 | 重大な外部性 | [core-banking.md](core-banking.md) |
-| 為替・決済系 | Tier 1 | 重大な外部性 | [payment-settlement.md](payment-settlement.md) |
-| 融資系 | Tier 2 | 機微性 | [lending.md](lending.md) |
-| 市場系・トレーディング | Tier 1〜2 | 業態による | [market-trading.md](market-trading.md) |
-| 対外接続系（全銀/SWIFT等） | Tier 1 | 重大な外部性 | [external-connectivity.md](external-connectivity.md) |
+| 勘定系（コアバンキング） | Tier 1 | 重大な外部性 | [アーキテクチャ: 勘定系（コアバンキング）](core-banking.md) |
+| 為替・決済系 | Tier 1 | 重大な外部性 | [アーキテクチャ: 為替・決済系](payment-settlement.md) |
+| 融資系 | Tier 2 | 機微性 | [アーキテクチャ: 融資系](lending.md) |
+| 市場系・トレーディング | Tier 1〜2 | 業態による | [アーキテクチャ: 市場系・トレーディング](market-trading.md) |
+| 対外接続系（全銀/SWIFT等） | Tier 1 | 重大な外部性 | [アーキテクチャ: 対外接続系（全銀/SWIFT等）](external-connectivity.md) |
 
 ### チャネル系システム
 
 | システム | 重要度 | FISC外部性 | ドキュメント |
 |---------|-------|-----------|------------|
-| インターネットバンキング | Tier 2〜3 | 判断による | [internet-banking.md](internet-banking.md) |
-| モバイルバンキング | Tier 2〜3 | 判断による | [mobile-banking.md](mobile-banking.md) |
-| ATM系 | Tier 2〜3 | 判断による | [atm.md](atm.md) |
+| インターネットバンキング | Tier 2〜3 | 判断による | [アーキテクチャ: インターネットバンキング](internet-banking.md) |
+| モバイルバンキング | Tier 2〜3 | 判断による | [アーキテクチャ: モバイルバンキング](mobile-banking.md) |
+| ATM系 | Tier 2〜3 | 判断による | [アーキテクチャ: ATM系](atm.md) |
 
 ### 情報・管理系システム
 
 | システム | 重要度 | FISC外部性 | ドキュメント |
 |---------|-------|-----------|------------|
-| 情報系・DWH/BI | Tier 3 | なし | [dwh-bi.md](dwh-bi.md) |
-| リスク管理系 | Tier 2〜3 | なし | [risk-management.md](risk-management.md) |
-| AML/KYC（マネロン対策） | Tier 2 | 機微性 | [aml-kyc.md](aml-kyc.md) |
+| 情報系・DWH/BI | Tier 3 | なし | [アーキテクチャ: 情報系・DWH/BI](dwh-bi.md) |
+| リスク管理系 | Tier 2〜3 | なし | [アーキテクチャ: リスク管理系](risk-management.md) |
+| AML/KYC（マネロン対策） | Tier 2 | 機微性 | [アーキテクチャ: AML/KYC（マネロン対策）](aml-kyc.md) |
 
 ### イノベーション基盤
 
 | システム | 重要度 | FISC外部性 | ドキュメント |
 |---------|-------|-----------|------------|
-| AI・生成AI基盤 | Tier 3〜4 | 用途による | [ai-platform.md](ai-platform.md) |
+| AI・生成AI基盤 | Tier 3〜4 | 用途による | [アーキテクチャ: AI・生成AI基盤](ai-platform.md) |
 
 ### 開発基盤
 
 | システム | 重要度 | FISC外部性 | ドキュメント |
 |---------|-------|-----------|------------|
-| 開発基盤（Engineering Platform） | Tier 3〜4 | なし | [engineering-platform.md](engineering-platform.md) |
+| 開発基盤（Engineering Platform） | Tier 3〜4 | なし | [アーキテクチャ: 開発基盤（Engineering Platform）](engineering-platform.md) |
 
 ## アーキテクチャ全体像
 
