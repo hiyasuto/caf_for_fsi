@@ -26,6 +26,8 @@ Azure Cloud Adoption Framework（CAF）の導入方法論と Well-Architected Fr
 
 ## 📘 ドキュメント
 
+FISC安全対策基準の各領域（ガバナンス・セキュリティ・信頼性・運用・開発・AI等）を Azure のサービスと設計パターンに対応づけたフレームワークドキュメントです。01 から順に読み進めることで、FISC準拠の全体像を把握できます。
+
 ### FISC × Azure フレームワーク
 
 | # | ドキュメント | 概要 | 対応FISC基準 |
@@ -50,6 +52,8 @@ Azure Cloud Adoption Framework（CAF）の導入方法論と Well-Architected Fr
 ---
 
 ## 🏗️ ランディングゾーン
+
+金融機関の主要システムごとに、Azure 上の具体的なアーキテクチャ設計・サービス構成・FISC基準対応を記載したリファレンスアーキテクチャ集です。各ドキュメントは独立して参照でき、Hub-Spoke ネットワーク上の Spoke として設計されています。
 
 > [FSI向けAzureランディングゾーン リファレンスアーキテクチャ](landing-zone/reference-architecture.md) — 全体アーキテクチャ・Hub-Spoke ネットワーク・FISC準拠ポリシー
 
