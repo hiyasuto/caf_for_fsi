@@ -54,37 +54,37 @@ Azure Cloud Adoption Framework（CAF）の導入方法論と Well-Architected Fr
 
 ### 基幹系システム
 
-| システム | 重要度 | ドキュメント |
-|---------|-------|------------|
-| 勘定系（コアバンキング） | Tier 1 | [アーキテクチャ: 勘定系（コアバンキング）](landing-zone/core-banking.md) |
-| 為替・決済系 | Tier 1 | [アーキテクチャ: 為替・決済系](landing-zone/payment-settlement.md) |
-| 融資系 | Tier 2 | [アーキテクチャ: 融資系](landing-zone/lending.md) |
-| 市場系・トレーディング | Tier 1〜2 | [アーキテクチャ: 市場系・トレーディング](landing-zone/market-trading.md) |
-| 対外接続系（全銀/SWIFT等） | Tier 1 | [アーキテクチャ: 対外接続系（全銀/SWIFT等）](landing-zone/external-connectivity.md) |
+| システム | ドキュメント |
+|---------|------------|
+| 勘定系（コアバンキング） | [アーキテクチャ: 勘定系（コアバンキング）](landing-zone/core-banking.md) |
+| 為替・決済系 | [アーキテクチャ: 為替・決済系](landing-zone/payment-settlement.md) |
+| 融資系 | [アーキテクチャ: 融資系](landing-zone/lending.md) |
+| 市場系・トレーディング | [アーキテクチャ: 市場系・トレーディング](landing-zone/market-trading.md) |
+| 対外接続系（全銀/SWIFT等） | [アーキテクチャ: 対外接続系（全銀/SWIFT等）](landing-zone/external-connectivity.md) |
 
 ### チャネル系システム
 
-| システム | 重要度 | ドキュメント |
-|---------|-------|------------|
-| インターネットバンキング | Tier 2〜3 | [アーキテクチャ: インターネットバンキング](landing-zone/internet-banking.md) |
-| モバイルバンキング | Tier 2〜3 | [アーキテクチャ: モバイルバンキング](landing-zone/mobile-banking.md) |
-| ATM系 | Tier 2〜3 | [アーキテクチャ: ATM系](landing-zone/atm.md) |
-| APIバンキング（オープンAPI） | Tier 2 | [アーキテクチャ: APIバンキング（オープンAPI）](landing-zone/api-banking.md) |
+| システム | ドキュメント |
+|---------|------------|
+| インターネットバンキング | [アーキテクチャ: インターネットバンキング](landing-zone/internet-banking.md) |
+| モバイルバンキング | [アーキテクチャ: モバイルバンキング](landing-zone/mobile-banking.md) |
+| ATM系 | [アーキテクチャ: ATM系](landing-zone/atm.md) |
+| APIバンキング（オープンAPI） | [アーキテクチャ: APIバンキング（オープンAPI）](landing-zone/api-banking.md) |
 
 ### 情報・管理系システム
 
-| システム | 重要度 | ドキュメント |
-|---------|-------|------------|
-| 情報系・DWH/BI | Tier 3 | [アーキテクチャ: 情報系・DWH/BI](landing-zone/dwh-bi.md) |
-| リスク管理系 | Tier 2〜3 | [アーキテクチャ: リスク管理系](landing-zone/risk-management.md) |
-| AML/KYC（マネロン対策） | Tier 2 | [アーキテクチャ: AML/KYC（マネロン対策）](landing-zone/aml-kyc.md) |
+| システム | ドキュメント |
+|---------|------------|
+| 情報系・DWH/BI | [アーキテクチャ: 情報系・DWH/BI](landing-zone/dwh-bi.md) |
+| リスク管理系 | [アーキテクチャ: リスク管理系](landing-zone/risk-management.md) |
+| AML/KYC（マネロン対策） | [アーキテクチャ: AML/KYC（マネロン対策）](landing-zone/aml-kyc.md) |
 
 ### イノベーション・開発基盤
 
-| システム | 重要度 | ドキュメント |
-|---------|-------|------------|
-| AI・生成AI基盤 | Tier 3〜4 | [アーキテクチャ: AI・生成AI基盤](landing-zone/ai-platform.md) |
-| 開発基盤（Engineering Platform） | Tier 3〜4 | [アーキテクチャ: 開発基盤（Engineering Platform）](landing-zone/engineering-platform.md) |
+| システム | ドキュメント |
+|---------|------------|
+| AI・生成AI基盤 | [アーキテクチャ: AI・生成AI基盤](landing-zone/ai-platform.md) |
+| 開発基盤（Engineering Platform） | [アーキテクチャ: 開発基盤（Engineering Platform）](landing-zone/engineering-platform.md) |
 
 ---
 
