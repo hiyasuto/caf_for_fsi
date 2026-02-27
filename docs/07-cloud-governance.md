@@ -137,3 +137,14 @@ OS                  顧客        Microsoft   Microsoft
 - [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/)
 - [Azure の日本リージョン](https://azure.microsoft.com/explore/global-infrastructure/geographies/)
 - [Azure コンプライアンス認証](https://learn.microsoft.com/azure/compliance/)
+
+
+---
+
+## 次のステップ
+
+| # | 次のドキュメント | 概要 |
+|---|----------------|------|
+| → | [08. AI安全対策](08-ai-safety.md) | AI/生成AIの利用方針・リスク管理 |
+| → | [FSI向けランディングゾーン リファレンスアーキテクチャ](../landing-zone/reference-architecture.md) | 全体アーキテクチャ・Hub-Spoke 設計 |
+| → | [FISC基準→Azureサービス マッピング](../mapping/fisc-to-azure-services.md) | FISC全324基準のAzureサービス対応表 |

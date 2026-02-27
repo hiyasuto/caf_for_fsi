@@ -101,3 +101,14 @@ Security                                 (継続監視)
 - [GitHub Advanced Security](https://docs.github.com/code-security)
 - [Microsoft Security DevOps](https://learn.microsoft.com/azure/defender-for-cloud/azure-devops-extension)
 - [Azure Load Testing](https://learn.microsoft.com/azure/load-testing/)
+
+
+---
+
+## 次のステップ
+
+| # | 次のドキュメント | 概要 |
+|---|----------------|------|
+| → | [07. クラウドガバナンス](07-cloud-governance.md) | クラウド固有リスク・責任分界・外部委託管理 |
+| → | [開発基盤 ランディングゾーン](../landing-zone/engineering-platform.md) | GitHub / GitHub Copilot / AVD を活用した開発基盤の詳細設計 |
+| → | [ワークロード別 FISC実務基準マッピング](../mapping/fisc-workload-mapping.md) | 各ランディングゾーンへの FISC 基準適用要件 |

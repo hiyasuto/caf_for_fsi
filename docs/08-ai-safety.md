@@ -112,3 +112,14 @@ FISC第13版で新設されたAI安全対策基準（実150〜実153）は、金
 - [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/)
 - [Microsoft Responsible AI](https://www.microsoft.com/ai/responsible-ai)
 - [Azure AI Foundry](https://learn.microsoft.com/azure/ai-studio/)
+
+
+---
+
+## 次のステップ
+
+| # | 次のドキュメント | 概要 |
+|---|----------------|------|
+| → | [09. 監査](09-audit.md) | システム監査・サイバーセキュリティ監査 |
+| → | [AI・生成AI基盤 ランディングゾーン](../landing-zone/ai-platform.md) | AI基盤の詳細アーキテクチャ・Azure AI Foundry の設計 |
+| → | [ワークロード別 FISC実務基準マッピング](../mapping/fisc-workload-mapping.md) | 各ランディングゾーンへの FISC 基準適用要件 |

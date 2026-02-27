@@ -142,3 +142,14 @@ FISC統制基準は、金融機関等の経営層・管理者が果たすべきI
 - [Microsoft Entra ID](https://learn.microsoft.com/entra/identity/)
 - [Microsoft Defender for Cloud](https://learn.microsoft.com/azure/defender-for-cloud/)
 - [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/)
+
+
+---
+
+## 次のステップ
+
+| # | 次のドキュメント | 概要 |
+|---|----------------|------|
+| → | [03. セキュリティ](03-security.md) | 認証・暗号化・ネットワーク・サイバー対策の技術的実装 |
+| → | [07. クラウドガバナンス](07-cloud-governance.md) | クラウド固有リスク・責任分界・Azure Policy ガードレール |
+| → | [ワークロード別 FISC実務基準マッピング](../mapping/fisc-workload-mapping.md) | 各ランディングゾーンへの FISC 基準適用要件 |
