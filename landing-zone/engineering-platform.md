@@ -6,8 +6,9 @@
 
 - 本リファレンスアーキテクチャは、金融機関のアプリケーション開発に必要なソースコード管理、CI/CD、開発者ワークステーション、コンテナレジストリ、セキュリティスキャン等の開発基盤を対象としています。
 - 各業務システム（勘定系・チャネル系等）のアプリケーションアーキテクチャは各システム別ランディングゾーンを参照してください。本ドキュメントはそれらのシステムを開発・デプロイするための **共通基盤** を定義します。
-- 開発基盤は [GitHub Enterprise Cloud](https://docs.github.com/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud) を中心に構成し、Azure サービスと連携させる設計としています。
-- 開発者の作業環境は [Azure Virtual Desktop](https://learn.microsoft.com/azure/virtual-desktop/overview) / [Windows 365](https://learn.microsoft.com/windows-365/overview) / [GitHub Codespaces](https://docs.github.com/codespaces) のいずれかまたは組み合わせで提供し、ソースコードの端末残留を防止します。
+- 開発基盤は [GitHub Enterprise Cloud with data residency](https://docs.github.com/enterprise-cloud@latest/admin/data-residency/about-github-enterprise-cloud-with-data-residency)（**Japan リージョン**）を中心に構成し、Azure サービスと連携させる設計としています。データレジデンシー版は `GHE.com` 上でホスティングされ、リポジトリ・Actions ログ・ユーザーコンテンツ等の主要データが **日本リージョン内に格納** されます。
+- データレジデンシー版の利用には **Enterprise Managed Users (EMU)** が必須であり、全ユーザーアカウントは IdP（Entra ID）経由の SAML/OIDC 認証でのみアクセスします。
+- 開発者の作業環境は [Azure Virtual Desktop](https://learn.microsoft.com/azure/virtual-desktop/overview) / [Windows 365](https://learn.microsoft.com/windows-365/overview) / [GitHub Codespaces](https://docs.github.com/codespaces) のいずれかまたは組み合わせで提供し、ソースコードの端末残留を防止します。ただし、GitHub Codespaces はデータレジデンシー版（GHE.com）では Public Preview 段階のため、利用可否を確認してください。
 - 本アーキテクチャは [セキュア ソフトウェア開発ライフサイクル（SSDLC）](https://learn.microsoft.com/security/zero-trust/develop/embed-zero-trust-dev-workflow) のベストプラクティスに準拠した設計としています。
 
 ## システム概要
@@ -47,7 +48,7 @@
 
 | FISC基準 | 要件 | 実装 |
 |---------|------|------|
-| 実25 | アクセス権限管理 | GitHub EMU + Entra ID SAML SSO + SCIM プロビジョニング |
+| 実25 | アクセス権限管理 | GitHub EMU + Entra ID OIDC認証 + SCIM プロビジョニング |
 | 実26 | 特権ID管理 | Organization Owner / Repository Admin を Entra PIM で管理 |
 | 実39 | バックアップ | GitHub Enterprise バックアップ + ACR Geo-Replication |
 | 実150 | 開発環境の管理 | 本番環境と完全分離（別サブスクリプション・別VNet） |
@@ -58,24 +59,65 @@
 
 ## アーキテクチャの特徴
 
-### GitHub Enterprise Cloud（ソースコード管理基盤）
+### GitHub Enterprise Cloud with Data Residency — Japan（ソースコード管理基盤）
 
-金融機関の開発組織を **GitHub Enterprise Cloud** で統合管理します。**Enterprise Managed Users (EMU)** により、全ユーザーアカウントを Entra ID で一元管理し、退職・異動時の即座のアクセス無効化を実現します。
+金融機関の開発組織を **GitHub Enterprise Cloud with data residency（Japan リージョン）** で統合管理します。データレジデンシー版は従来の `github.com` ではなく **`GHE.com`** 上でホスティングされ、リポジトリ・ソースコード・Actions ログ・PR/Issue 等の主要データが **日本リージョン内に格納** されます。**Enterprise Managed Users (EMU)** が必須であり、全ユーザーアカウントを Entra ID で一元管理し、退職・異動時の即座のアクセス無効化を実現します。
 
 | 機能 | 設計 |
 |------|------|
-| 認証 | Entra ID SAML SSO（EMU） — 全ユーザーを IdP 管理下に |
+| ホスティング | `{subdomain}.ghe.com`（Data Residency: Japan） |
+| 認証 | Entra ID **OIDC** 認証（推奨）または SAML SSO — シークレットレス認証 |
 | プロビジョニング | SCIM 自動プロビジョニング — Entra ID のグループに基づく自動追加・削除 |
+| API エンドポイント | `api.{subdomain}.ghe.com`（通常版の `api.github.com` とは異なる） |
 | Organization 構成 | システム単位（勘定系・チャネル系等）で Organization を分離 |
 | リポジトリ可視性 | Internal（Enterprise 内公開）を基本とし InnerSource を促進 |
 | ブランチ保護 | main ブランチ: PR必須・レビュー2名以上・署名付きコミット・ステータスチェック必須 |
 | CODEOWNERS | 重要ファイル（Dockerfile、IaC、セキュリティ設定等）に対する必須レビュアー指定 |
 | Audit Log | Enterprise Audit Log を Log Analytics に転送（90日以上保持） |
 | IP制限 | Enterprise レベルの IP Allow List で接続元を制限 |
+| 課金 | Azure サブスクリプションに紐づけ（Azure Marketplace 経由） |
 
-> **参考**: [GitHub Enterprise Managed Users](https://docs.github.com/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)
+#### データレジデンシー — 日本リージョン内に格納されるデータ
+
+| データ種別 | 格納先 |
+|-----------|-------|
+| リポジトリ（ソースコード・リポジトリ名） | **Japan リージョン内** |
+| ユーザー生成コンテンツ（PR、コメント、Issue等） | **Japan リージョン内** |
+| GitHub Actions のデータ・ログ | **Japan リージョン内** |
+| BCDR（事業継続・災害復旧）用データ | **Japan リージョン内** |
+| メールアドレス・ユーザー名・IP アドレス | **Japan リージョン内** |
+
+#### データレジデンシー — リージョン外に格納されるデータ
+
+以下のデータは GitHub の [Data Protection Agreement](https://docs.github.com/enterprise-cloud@latest/admin/data-residency/about-github-enterprise-cloud-with-data-residency) に基づき、Japan リージョン外に格納されます。
+
+| データ種別 | 備考 |
+|-----------|------|
+| GitHub Copilot のデータ | AI モデル処理のためリージョン外 |
+| Secret Scanning のデータ | グローバルパターンマッチング基盤 |
+| テレメトリ・ログ（個人識別不可） | 運用監視用 |
+| 課金・ライセンス・連絡先情報 | 商取引管理用 |
+| サポート・フィードバックデータ | サポート基盤 |
+
+#### GHE.com の機能制限事項
+
+データレジデンシー版（GHE.com）では、通常版（github.com）と比較して一部機能に制限があります。設計時に考慮してください。
+
+| 制限される機能 | 状況 | 代替手段 |
+|-------------|------|---------|
+| GitHub Codespaces | Public Preview | AVD / Windows 365 で代替 |
+| Copilot Metrics API | Public Preview | Enterprise Audit Log で代替追跡 |
+| GitHub Marketplace | 利用不可 | Actions は直接参照可能 |
+| GitHub Models | 利用不可 | Azure AI Foundry で代替 |
+| macOS Runner（GitHub Actions） | 利用不可 | Self-hosted macOS Runner で代替 |
+| GitHub Packages（Maven/Gradle） | 利用不可 | Azure Artifacts / ACR で代替 |
+
+> **参考**: [GitHub Enterprise Cloud with data residency](https://docs.github.com/enterprise-cloud@latest/admin/data-residency/about-github-enterprise-cloud-with-data-residency)
+> **参考**: [Feature overview for GHE.com](https://docs.github.com/enterprise-cloud@latest/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency)
 
 ### GitHub Copilot Enterprise（AI支援開発）
+
+> **注意**: GitHub Copilot のデータ（プロンプト・補完結果等）はデータレジデンシーの対象外であり、Japan リージョン外で処理されます。金融機関のデータ取り扱いポリシーに基づき、機密性の高いコードに対する Copilot の利用範囲を Organization 単位で制御してください。
 
 **GitHub Copilot Enterprise** により、開発者の生産性を向上させつつ、金融機関固有のガバナンスを適用します。
 
@@ -249,16 +291,18 @@ GitHub Actions による CI/CD パイプラインを構築し、**Self-hosted Ru
 └─────────┼─────────────────┼──────────────────────┼───────────────┘
           │                 │                      │
 ┌─────────▼─────────────────▼──────────────────────▼───────────────┐
-│  GitHub Cloud                                                     │
+│  GitHub Cloud (GHE.com — Data Residency: Japan)                   │
 │  ┌──────────────────────────────────────────────────────────────┐ │
-│  │ GitHub Enterprise Cloud (EMU)                                │ │
+│  │ GitHub Enterprise Cloud (EMU) — {subdomain}.ghe.com          │ │
 │  │ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌────────────────┐  │ │
 │  │ │ Repos    │ │ Actions  │ │ Copilot  │ │ Advanced       │  │ │
 │  │ │ (Git)    │ │ (CI/CD)  │ │ Enterprise│ │ Security(GHAS)│  │ │
 │  │ └──────────┘ └──────────┘ └──────────┘ └────────────────┘  │ │
 │  │ ┌──────────┐ ┌──────────┐ ┌──────────────────────────────┐ │ │
 │  │ │ Packages │ │ Codespaces│ │ Security Overview            │ │ │
-│  │ └──────────┘ └──────────┘ └──────────────────────────────┘ │ │
+│  │ └──────────┘ │(Preview) │ └──────────────────────────────┘ │ │
+│  │              └──────────┘                                   │ │
+│  └──────────────────────────────────────────────────────────────┘ │
 │  └──────────────────────────────────────────────────────────────┘ │
 │         │ OIDC Federation                                         │
 │         │ (Workload Identity)                                     │
@@ -347,7 +391,7 @@ GitHub Actions による CI/CD パイプラインを構築し、**Self-hosted Ru
 
 | コンポーネント | サービス | 用途 |
 |-------------|---------|------|
-| 開発者認証 | Entra ID + GitHub EMU (SAML SSO) | シングルサインオン・自動プロビジョニング |
+| 開発者認証 | Entra ID + GitHub EMU (OIDC推奨) | シングルサインオン・自動プロビジョニング（GHE.com） |
 | 特権管理 | Entra PIM | Organization Owner / Admin の Just-in-Time 昇格 |
 | 条件付きアクセス | Entra Conditional Access | MFA + 準拠デバイス + 位置情報制限 |
 | Workload Identity | Entra Workload Identity Federation | GitHub Actions → Azure 間の OIDC 認証 |
@@ -407,12 +451,80 @@ Hub VNet (10.0.0.0/16) ← ExpressRoute Gateway + Azure Firewall
 
 NSG ルール:
 - インバウンド: Hub Firewall からのみ許可
-- アウトバウンド: Hub Firewall 経由（GitHub.com / Copilot API へのアクセスを明示許可）
+- アウトバウンド: Hub Firewall 経由（GHE.com / Copilot API へのアクセスを明示許可）
 - AVD サブネット: RDP (3389) は Azure Virtual Desktop サービスタグからのみ許可
 - Runner サブネット: ACR / Key Vault / 本番系 AKS API への Private Endpoint 通信のみ許可
 - 本番系 Spoke VNet への通信: Runner → ACR Pull + AKS Deploy のみ（Firewall ルール）
 - 開発者 AVD → 本番系 Spoke VNet: 直接通信不可（踏み台アクセスは別途 Bastion 経由）
 ```
+
+### GHE.com ネットワーク Allow List（Azure Firewall / プロキシ設定）
+
+データレジデンシー版（GHE.com）は通常版（github.com）とはホスト名・IPアドレスが異なります。Azure Firewall や プロキシの Allow List を適切に設定してください。
+
+#### 必須ホスト名（FQDN Allow List）
+
+| ホスト名パターン | 用途 |
+|----------------|------|
+| `*.{subdomain}.ghe.com` | GitHub Enterprise 全般 |
+| `{subdomain}.ghe.com` | Enterprise ポータル |
+| `auth.ghe.com` | 認証サービス |
+| `*.githubassets.com` | 静的アセット（CSS/JS/画像） |
+| `*.githubusercontent.com` | ユーザーコンテンツ（アバター・Raw ファイル等） |
+| `*.blob.core.windows.net` | ストレージ（下記で限定可能） |
+| `github.com` | OAuth コールバック（Azure サブスクリプション紐づけ時） |
+
+> **限定設定**: `*.blob.core.windows.net` は Japan リージョンの場合、以下の4ホストに限定可能です:
+> - `prodjpw01resultssa0.blob.core.windows.net`
+> - `prodjpw01resultssa1.blob.core.windows.net`
+> - `prodjpw01resultssa2.blob.core.windows.net`
+> - `prodjpw01resultssa3.blob.core.windows.net`
+
+#### GitHub Actions（Azure Private Networking）用 Allow List
+
+GitHub-hosted Runner で Azure Private Networking を使用する場合、以下の IP / ドメインを許可してください。
+
+**Japan リージョン IP アドレス（Egress）**:
+
+| 用途 | IP レンジ |
+|------|----------|
+| GHE.com Egress | `74.226.88.192/28` |
+| GHE.com Egress | `40.81.180.112/28` |
+| GHE.com Egress | `4.190.169.192/28` |
+
+**Japan リージョン IP アドレス（Ingress）**:
+
+| 用途 | IP レンジ |
+|------|----------|
+| GHE.com Ingress | `74.226.88.240/28` |
+| GHE.com Ingress | `40.81.176.224/28` |
+| GHE.com Ingress | `4.190.169.240/28` |
+
+**Actions Private Networking IP（Japan）**:
+
+| 用途 | IP アドレス |
+|------|-----------|
+| Actions IP | `20.63.233.164` |
+| Actions IP | `172.192.153.164` |
+
+**全リージョン共通（github.com 通信要件）**:
+
+| IP レンジ | 用途 |
+|----------|------|
+| `192.30.252.0/22` | GitHub API / Web |
+| `185.199.108.0/22` | GitHub Pages / CDN |
+| `140.82.112.0/20` | GitHub API / Web |
+| `143.55.64.0/20` | GitHub API / Web |
+
+**Actions Runner サポートリージョン（Azure Private Networking）**:
+
+| Runner タイプ | サポートリージョン |
+|-------------|----------------|
+| x64 | `japaneast`, `japanwest` |
+| arm64 | `japaneast`, `japanwest` |
+| GPU | `japaneast` のみ |
+
+> **参考**: [Network details for GHE.com](https://docs.github.com/enterprise-cloud@latest/admin/data-residency/network-details-for-ghecom)
 
 ## 監視・オブザーバビリティ
 
@@ -465,20 +577,32 @@ NSG ルール:
 
 ## 関連リソース
 
-- [GitHub Enterprise Cloud: Enterprise Managed Users](https://docs.github.com/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)
+### GitHub Enterprise Cloud with Data Residency
+- [About GitHub Enterprise Cloud with data residency](https://docs.github.com/enterprise-cloud@latest/admin/data-residency/about-github-enterprise-cloud-with-data-residency)
+- [Feature overview for GHE.com](https://docs.github.com/enterprise-cloud@latest/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency)
+- [Network details for GHE.com](https://docs.github.com/enterprise-cloud@latest/admin/data-residency/network-details-for-ghecom)
+- [GitHub Enterprise Managed Users (EMU)](https://docs.github.com/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)
+- [Configuring OIDC for EMU](https://docs.github.com/enterprise-cloud@latest/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-oidc-for-enterprise-managed-users)
+- [Configuring SAML SSO for EMU](https://docs.github.com/enterprise-cloud@latest/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)
+- [SCIM provisioning with Entra ID (OIDC)](https://learn.microsoft.com/entra/identity/saas-apps/github-enterprise-managed-user-oidc-provisioning-tutorial)
+
+### GitHub Security & DevSecOps
 - [GitHub Advanced Security Overview](https://docs.github.com/code-security/getting-started/github-security-features)
 - [GitHub Copilot for Business](https://docs.github.com/copilot/overview-of-github-copilot/about-github-copilot-business)
 - [Embed Zero Trust security into your developer workflow](https://learn.microsoft.com/security/zero-trust/develop/embed-zero-trust-dev-workflow)
+- [GitHub Actions: OIDC with Azure](https://docs.github.com/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-azure)
+
+### Azure サービス
 - [Azure Virtual Desktop Overview](https://learn.microsoft.com/azure/virtual-desktop/overview)
 - [Windows 365 Overview](https://learn.microsoft.com/windows-365/overview)
-- [GitHub Codespaces Overview](https://docs.github.com/codespaces)
 - [Self-hosted CI/CD runners with Azure Container Apps jobs](https://learn.microsoft.com/azure/container-apps/tutorial-ci-cd-runners-jobs)
 - [Azure Container Registry: Best practices](https://learn.microsoft.com/azure/container-registry/container-registry-best-practices)
 - [Azure Container Registry: Geo-replication](https://learn.microsoft.com/azure/container-registry/container-registry-geo-replication)
 - [Azure Container Registry: Private Link](https://learn.microsoft.com/azure/container-registry/container-registry-private-link)
+- [Entra Workload Identity Federation](https://learn.microsoft.com/entra/workload-id/workload-identity-federation)
+
+### サプライチェーンセキュリティ
 - [Container Secure Supply Chain (CSSC)](https://learn.microsoft.com/azure/security/container-secure-supply-chain/articles/container-secure-supply-chain-implementation/acquire-overview)
 - [Notary Project: Container image signing](https://notaryproject.dev/)
 - [SBOM tool](https://github.com/microsoft/sbom-tool)
 - [Ratify: Artifact verification for Kubernetes](https://ratify.dev/)
-- [GitHub Actions: OIDC with Azure](https://docs.github.com/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-azure)
-- [Entra Workload Identity Federation](https://learn.microsoft.com/entra/workload-id/workload-identity-federation)
