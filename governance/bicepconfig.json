@@ -1,0 +1,85 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/bicep/main/src/Bicep.Core/Configuration/bicepconfig.schema.json",
+  "analyzers": {
+    "core": {
+      "enabled": true,
+      "rules": {
+        "no-hardcoded-env-urls": {
+          "level": "error"
+        },
+        "no-unused-params": {
+          "level": "error"
+        },
+        "no-unused-vars": {
+          "level": "error"
+        },
+        "prefer-interpolation": {
+          "level": "warning"
+        },
+        "secure-parameter-default": {
+          "level": "error"
+        },
+        "simplify-interpolation": {
+          "level": "warning"
+        },
+        "protect-commandtoexecute-secrets": {
+          "level": "error"
+        },
+        "use-stable-vm-image": {
+          "level": "error"
+        },
+        "explicit-values-for-loc-params": {
+          "level": "warning"
+        },
+        "no-unnecessary-dependson": {
+          "level": "warning"
+        },
+        "use-safe-access": {
+          "level": "warning"
+        },
+        "use-recent-api-versions": {
+          "level": "warning",
+          "configuration": {
+            "maxAgeInDays": 730
+          }
+        },
+        "use-resource-id-functions": {
+          "level": "warning"
+        },
+        "adminusername-should-not-be-literal": {
+          "level": "error"
+        },
+        "max-outputs": {
+          "level": "warning",
+          "configuration": {
+            "maxCount": 20
+          }
+        },
+        "max-params": {
+          "level": "warning",
+          "configuration": {
+            "maxCount": 30
+          }
+        },
+        "max-resources": {
+          "level": "warning",
+          "configuration": {
+            "maxCount": 100
+          }
+        },
+        "max-variables": {
+          "level": "warning",
+          "configuration": {
+            "maxCount": 30
+          }
+        },
+        "no-hardcoded-location": {
+          "level": "warning"
+        },
+        "outputs-should-not-contain-secrets": {
+          "level": "error"
+        }
+      }
+    }
+  }
+}
