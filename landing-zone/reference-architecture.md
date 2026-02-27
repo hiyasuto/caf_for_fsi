@@ -42,6 +42,12 @@
 |---------|-------|-----------|------------|
 | AI・生成AI基盤 | Tier 3〜4 | 用途による | [ai-platform.md](ai-platform.md) |
 
+### 開発基盤
+
+| システム | 重要度 | FISC外部性 | ドキュメント |
+|---------|-------|-----------|------------|
+| 開発基盤（Engineering Platform） | Tier 3〜4 | なし | [engineering-platform.md](engineering-platform.md) |
+
 ## アーキテクチャ全体像
 
 ```
