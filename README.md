@@ -69,6 +69,7 @@ Azure Cloud Adoption Framework（CAF）の導入方法論と Well-Architected Fr
 | インターネットバンキング | Tier 2〜3 | [アーキテクチャ: インターネットバンキング](landing-zone/internet-banking.md) |
 | モバイルバンキング | Tier 2〜3 | [アーキテクチャ: モバイルバンキング](landing-zone/mobile-banking.md) |
 | ATM系 | Tier 2〜3 | [アーキテクチャ: ATM系](landing-zone/atm.md) |
+| APIバンキング（オープンAPI） | Tier 2 | [アーキテクチャ: APIバンキング（オープンAPI）](landing-zone/api-banking.md) |
 
 ### 情報・管理系システム
 
