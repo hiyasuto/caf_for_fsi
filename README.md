@@ -8,7 +8,7 @@
 
 Azure Cloud Adoption Framework（CAF）の導入方法論と Well-Architected Framework（WAF）の5つの柱を基盤とし、FISC基準の324項目（統制基準36項目、実務基準152項目、設備基準134項目、監査基準2項目）をAzureサービスにマッピングしています。
 
-本資料は個人で作成したものであり、FISCおよびAzure CAF/WAFへの準拠における完全性を担保するものではないことをご了承ください。
+#本資料は個人で作成したものかつレビュー中であり、FISCおよびAzure CAF/WAFへの準拠における完全性を担保するものではないことをご了承ください。
 
 ## 対象読者
 
