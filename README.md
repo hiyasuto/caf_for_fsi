@@ -85,6 +85,12 @@ Azure Cloud Adoption Framework（CAF）の導入方法論と Well-Architected Fr
 |---------|------------|
 | サイバーレジリエンス | [アーキテクチャ: サイバーレジリエンス](landing-zone/cyber-resilience.md) |
 
+### メインフレーム連携・移行
+
+| システム | ドキュメント |
+|---------|------------|
+| メインフレーム連携・移行 | [アーキテクチャ: メインフレーム連携・移行](landing-zone/mainframe-integration.md) |
+
 ### イノベーション・開発基盤
 
 | システム | ドキュメント |
