@@ -144,7 +144,7 @@
 | 環境 | ユースケース | 特徴 |
 |------|------------|------|
 | **Azure Virtual Desktop** | 重量級開発（IDE + ビルド + テスト） | GPU対応、カスタムイメージ、VNet統合、マルチセッション |
-| **Windows 365** | 標準開発・日常業務 | 常時起動のCloud PC、固定リソース、Intune管理 |
+| **Windows 365** | 標準開発・日常業務 | 常時起動のCloud PC、固定リソース、Intune管理、開発者機能統合（Dev Box後継） |
 | **GitHub Codespaces** | 軽量開発・コードレビュー・ペアプロ | ブラウザベース、devcontainer定義、プリビルド、秒単位起動 |
 
 **AVD 構成の詳細**:
@@ -161,6 +161,8 @@
 | Watermark | 画面透かし表示（スクリーンショット抑止） |
 
 > **参考**: [Azure Virtual Desktop](https://learn.microsoft.com/azure/virtual-desktop/overview) — エンタープライズ VDI ソリューション
+
+> **Windows 365 の最新動向（2025年9月）**: Windows 365 に開発者向け機能が統合され、Microsoft Dev Box の後継として位置づけられています。また、**Windows 365 Link**（専用デバイス）によるセキュアなアクセス、**Windows 365 Reserve**（端末紛失・故障時の即時復旧）、**Windows 365 Cloud Apps**（フル Cloud PC なしでの個別アプリ提供）、**Cross-region Disaster Recovery**（リージョン障害時の Cloud PC 復旧）が利用可能です。エンドポイント管理では **Security Copilot in Intune** が GA となり、AI による Cloud PC の接続傾向分析やパフォーマンス問題の特定が可能になりました。詳細は [Windows 365 ブログ](https://blogs.windows.com/windowsexperience/2025/09/17/windows-365-brings-resilient-ai-driven-cloud-productivity-to-more-users/) を参照してください。
 
 ### GitHub Advanced Security（セキュリティスキャン）
 
@@ -361,7 +363,7 @@ GitHub Actions による CI/CD パイプラインを構築し、**Self-hosted Ru
 |-------------|-------------|---------|------|
 | 仮想デスクトップ | Azure Virtual Desktop | Standard_D8s_v5（Pooled） | 標準開発環境（VS Code + SDK） |
 | AI/ML開発用 | Azure Virtual Desktop | Standard_NC24ads_A100_v4 | GPU を必要とする AI/ML モデル開発 |
-| Cloud PC | Windows 365 Enterprise | 8 vCPU / 32GB RAM | 常時起動の個人専用開発環境 |
+| Cloud PC | Windows 365 Enterprise | 8 vCPU / 32GB RAM | 常時起動の個人専用開発環境（開発者機能統合） |
 | クラウドIDE | GitHub Codespaces | 8-core / 16GB | 軽量開発・コードレビュー・ペアプログラミング |
 | プロファイル | Azure Files Premium | FSLogix プロファイルコンテナ | ユーザープロファイルのローミング |
 
@@ -595,6 +597,9 @@ GitHub-hosted Runner で Azure Private Networking を使用する場合、以下
 ### Azure サービス
 - [Azure Virtual Desktop Overview](https://learn.microsoft.com/azure/virtual-desktop/overview)
 - [Windows 365 Overview](https://learn.microsoft.com/windows-365/overview)
+- [Windows 365: Resilient AI-driven Cloud Productivity](https://blogs.windows.com/windowsexperience/2025/09/17/windows-365-brings-resilient-ai-driven-cloud-productivity-to-more-users/)
+- [Windows 365 Link](https://www.microsoft.com/windows-365/link)
+- [Windows 365 Cross-region Disaster Recovery](https://techcommunity.microsoft.com/blog/windows-itpro-blog/windows-365-cross-region-disaster-recovery-generally-available/4178771)
 - [Self-hosted CI/CD runners with Azure Container Apps jobs](https://learn.microsoft.com/azure/container-apps/tutorial-ci-cd-runners-jobs)
 - [Azure Container Registry: Best practices](https://learn.microsoft.com/azure/container-registry/container-registry-best-practices)
 - [Azure Container Registry: Geo-replication](https://learn.microsoft.com/azure/container-registry/container-registry-geo-replication)
