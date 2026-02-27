@@ -108,7 +108,7 @@
 | GitHub Codespaces | Public Preview | AVD / Windows 365 で代替 |
 | Copilot Metrics API | Public Preview | Enterprise Audit Log で代替追跡 |
 | GitHub Marketplace | 利用不可 | Actions は直接参照可能 |
-| GitHub Models | 利用不可 | Azure AI Foundry で代替 |
+| GitHub Models | 利用不可 | Microsoft Foundry で代替 |
 | macOS Runner（GitHub Actions） | 利用不可 | Self-hosted macOS Runner で代替 |
 | GitHub Packages（Maven/Gradle） | 利用不可 | Azure Artifacts / ACR で代替 |
 

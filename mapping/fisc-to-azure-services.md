@@ -248,7 +248,7 @@
 | 基準番号 | 基準小項目 | 分類 | 主なAzureサービス |
 |---------|----------|------|-----------------|
 | 実150 🆕 | AIの利用に係る方針策定・態勢整備 | 基礎 | Azure Policy, Azure AI Content Safety, Responsible AI ダッシュボード |
-| 実151 🆕 | AIの適切な運用管理方法 | 基礎 | Azure AI Foundry, Azure Machine Learning（モデルレジストリ） |
+| 実151 🆕 | AIの適切な運用管理方法 | 基礎 | Microsoft Foundry, Azure Machine Learning（モデルレジストリ） |
 | 実152 🆕 | AIに係る安全対策 | 基礎 | Azure AI Content Safety（Prompt Shields）, Defender for AI |
 | 実153 🆕 | AIの利用に係る教育・注意喚起 | 基礎 | Microsoft Learn |
 

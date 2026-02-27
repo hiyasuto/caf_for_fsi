@@ -148,7 +148,7 @@ Microsoftが公式に発表している金融機関のAzure活用事例です。
 |--------|---------|------|--------|
 | Discovery Bank | 南アフリカ | Azure + Databricks で AI 駆動のパーソナライズド金融サービス、500% ROI | [Customer Story](https://www.microsoft.com/en/customers/story/23562-discovery-bank-azure) |
 | Ally Financial | 米国 | Azure OpenAI Service で顧客サービスの手動タスクを自動化 | [Customer Story](https://www.microsoft.com/en/customers/story/1715820133841482699-ally-azure-banking-en-united-states) |
-| Banco Bradesco | ブラジル | Azure AI Foundry 上にマルチエージェント生成AI基盤を構築、解決率83% | [Customer Story](https://www.microsoft.com/en/customers/story/25660-banco-bradesco-sa-azure-ai-foundry/) |
+| Banco Bradesco | ブラジル | Microsoft Foundry 上にマルチエージェント生成AI基盤を構築、解決率83% | [Customer Story](https://www.microsoft.com/en/customers/story/25660-banco-bradesco-sa-azure-ai-foundry/) |
 | Capitec Bank | 南アフリカ | M365 Copilot + Azure OpenAI で従業員の生産性向上（週1時間以上の節約） | [Customer Story](https://www.microsoft.com/en/customers/story/19093-capitec-bank-azure-open-ai-service) |
 
 > 最新の事例は [Microsoft Customer Stories](https://www.microsoft.com/en-us/customers/) および [Azure Customer Stories](https://azure.microsoft.com/en-us/resources/customer-stories/) で確認できます。

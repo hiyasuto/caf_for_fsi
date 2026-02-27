@@ -39,8 +39,8 @@ FISC第13版で新設されたAI安全対策基準（実150〜実153）は、金
 | 対策 | Azureサービス | 説明 |
 |------|-------------|------|
 | モデル管理 | Azure Machine Learning | モデルのバージョン管理・デプロイ管理 |
-| プロンプト管理 | Azure AI Foundry | プロンプトテンプレートの管理・テスト |
-| モニタリング | Azure AI Foundry（評価機能） | モデル出力の品質監視・ドリフト検出 |
+| プロンプト管理 | Microsoft Foundry | プロンプトテンプレートの管理・テスト |
+| モニタリング | Microsoft Foundry（評価機能） | モデル出力の品質監視・ドリフト検出 |
 | 監査ログ | Azure OpenAI 診断ログ | API呼び出し・入出力の監査ログ |
 | データガバナンス | Microsoft Purview | AI学習データの分類・リネージ管理 |
 
@@ -79,7 +79,7 @@ FISC第13版で新設されたAI安全対策基準（実150〜実153）は、金
 | ハルシネーション | RAG（検索拡張生成）による根拠付け | Azure AI Search + Azure OpenAI |
 | プロンプトインジェクション | 入力検証・サニタイズ | Azure AI Content Safety（Prompt Shields） |
 | モデルの悪用 | アクセス制御・利用制限 | Microsoft Entra ID、Azure API Management（レート制限） |
-| バイアス・公平性 | モデル評価・テスト | Azure AI Foundry（評価機能） |
+| バイアス・公平性 | モデル評価・テスト | Microsoft Foundry（評価機能） |
 | 知的財産リスク | 著作権フィルタリング | Azure OpenAI（著作権フィルター） |
 
 ### Azure OpenAI のセキュリティ機能
@@ -111,7 +111,7 @@ FISC第13版で新設されたAI安全対策基準（実150〜実153）は、金
 - [Azure OpenAI Service](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/)
 - [Microsoft Responsible AI](https://www.microsoft.com/ai/responsible-ai)
-- [Azure AI Foundry](https://learn.microsoft.com/azure/ai-studio/)
+- [Microsoft Foundry](https://learn.microsoft.com/azure/ai-studio/)
 
 
 ---
@@ -121,5 +121,5 @@ FISC第13版で新設されたAI安全対策基準（実150〜実153）は、金
 | # | 次のドキュメント | 概要 |
 |---|----------------|------|
 | → | [09. 監査](09-audit.md) | システム監査・サイバーセキュリティ監査 |
-| → | [AI・生成AI基盤 ランディングゾーン](../landing-zone/ai-platform.md) | AI基盤の詳細アーキテクチャ・Azure AI Foundry の設計 |
+| → | [AI・生成AI基盤 ランディングゾーン](../landing-zone/ai-platform.md) | AI基盤の詳細アーキテクチャ・Microsoft Foundry の設計 |
 | → | [ワークロード別 FISC実務基準マッピング](../mapping/fisc-workload-mapping.md) | 各ランディングゾーンへの FISC 基準適用要件 |
