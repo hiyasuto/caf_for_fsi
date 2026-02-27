@@ -1,4 +1,4 @@
-# FISC準拠 金融機関向け Azure Framework
+# FISC準拠 金融機関向け Azure Cloud Adoption Framework
 
 > FISC安全対策基準・解説書（第13版）× Azure Cloud Adoption Framework × Well-Architected Framework
 
