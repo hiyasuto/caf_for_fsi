@@ -98,6 +98,30 @@ Azure Cloud Adoption Framework（CAF）の導入方法論と Well-Architected Fr
 4. **AI安全対策** — 生成AI利用のリスク管理基準を新設（実150〜153）
 5. **サプライチェーンセキュリティ** — 統28を新設
 
+## Azure 金融機関 公開事例（Microsoft 発表）
+
+Microsoftが公式に発表している金融機関のAzure活用事例です。
+
+### 🇯🇵 国内事例
+
+| 企業名 | 概要 | リンク |
+|--------|------|--------|
+| 山梨中央銀行 | Azure OpenAI Service を全行導入し、生成AIによる業務効率化・インサイト営業を推進 | [Microsoft Customer Story](https://www.microsoft.com/ja-jp/customers/story/24415-yamanashi-chuo-bank-azure-openai) |
+| BIPROGY（BankVision） | 国内初の Microsoft Azure を稼働基盤とする銀行勘定系システムを構築（12行で採用） | [Microsoft Customer Story](https://www.microsoft.com/ja-jp/customers/story/22503-biprogy-azure) |
+| 三井住友フィナンシャルグループ | 日本の大手銀行として初めてMicrosoftと複数年の戦略的クラウド提携を締結、Azure を優先クラウド基盤に選定 | [Microsoft News（APAC）](https://news.microsoft.com/apac/2022/10/28/how-smbc-group-became-a-leader-in-transformation-and-digital-perseverance/) |
+| 第一生命ホールディングス | Microsoftとの複数年にわたる戦略的グローバルパートナーシップを締結、Azure を優先クラウド基盤として「保険サービス業」への変革を推進 | [Microsoft News（Japan）](https://news.microsoft.com/ja-jp/2024/08/23/240823-dai-ichi-life-holdings-x-microsoft-global-strategic-partnership-to-accelerate-digital-innovation/) |
+
+### 🌍 海外事例
+
+| 企業名 | 国・地域 | 概要 | リンク |
+|--------|---------|------|--------|
+| Discovery Bank | 南アフリカ | Azure と Azure Databricks で AI 駆動のパーソナライズド金融サービスを構築、500% ROI を達成 | [Microsoft Customer Story](https://www.microsoft.com/en/customers/story/23562-discovery-bank-azure) |
+| Ally Financial | 米国 | Azure OpenAI Service で顧客サービスの手動タスクを自動化、担当者がより顧客対応に集中できる環境を実現 | [Microsoft Customer Story](https://www.microsoft.com/en/customers/story/1715820133841482699-ally-azure-banking-en-united-states) |
+| Banco Bradesco | ブラジル | Azure AI Foundry 上にマルチエージェント生成AI基盤「Bridge」を構築、デジタル顧客対応で解決率83%・技術コスト30%以上削減 | [Microsoft Customer Story](https://www.microsoft.com/en/customers/story/25660-banco-bradesco-sa-azure-ai-foundry/) |
+| Capitec Bank | 南アフリカ | Microsoft 365 Copilot と Azure OpenAI Service で従業員の生産性向上（週1時間以上の時間節約） | [Microsoft Customer Story](https://www.microsoft.com/en/customers/story/19093-capitec-bank-azure-open-ai-service) |
+
+> **注記:** 上記は Microsoft が公式に発表した事例の一部です。最新の事例は [Microsoft Customer Stories](https://www.microsoft.com/en-us/customers/) および [Azure Customer Stories](https://azure.microsoft.com/en-us/resources/customer-stories/) で確認できます。
+
 ## 関連リソース
 
 - [Azure Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/)
