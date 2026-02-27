@@ -79,6 +79,12 @@ Azure Cloud Adoption Framework（CAF）の導入方法論と Well-Architected Fr
 | リスク管理系 | [アーキテクチャ: リスク管理系](landing-zone/risk-management.md) |
 | AML/KYC（マネロン対策） | [アーキテクチャ: AML/KYC（マネロン対策）](landing-zone/aml-kyc.md) |
 
+### セキュリティ・レジリエンス基盤
+
+| システム | ドキュメント |
+|---------|------------|
+| サイバーレジリエンス | [アーキテクチャ: サイバーレジリエンス](landing-zone/cyber-resilience.md) |
+
 ### イノベーション・開発基盤
 
 | システム | ドキュメント |
