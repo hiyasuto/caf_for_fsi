@@ -45,6 +45,7 @@ Azure Cloud Adoption Framework（CAF）の導入方法論と Well-Architected Fr
 | ドキュメント | 概要 |
 |------------|------|
 | [FISC基準→Azureサービス マッピング](mapping/fisc-to-azure-services.md) | FISC全324基準項目とAzureサービスの対応表 |
+| [ワークロード別 FISC実務基準マッピング](mapping/fisc-workload-mapping.md) | ランディングゾーンごとのFISC実務基準適用要件とAzure実装の横断マッピング |
 
 ---
 
