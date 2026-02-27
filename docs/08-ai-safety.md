@@ -121,5 +121,5 @@ FISC第13版で新設されたAI安全対策基準（実150〜実153）は、金
 | # | 次のドキュメント | 概要 |
 |---|----------------|------|
 | → | [09. 監査](09-audit.md) | システム監査・サイバーセキュリティ監査 |
-| → | [AI・生成AI基盤 ランディングゾーン](../landing-zone/ai-platform.md) | AI基盤の詳細アーキテクチャ・Microsoft Foundry の設計 |
+| → | [生成AI/エージェント基盤 ランディングゾーン](../landing-zone/ai-platform.md) | AI基盤の詳細アーキテクチャ・Microsoft Foundry の設計 |
 | → | [ワークロード別 FISC実務基準マッピング](../mapping/fisc-workload-mapping.md) | 各ランディングゾーンへの FISC 基準適用要件 |
