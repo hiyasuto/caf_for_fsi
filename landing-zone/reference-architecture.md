@@ -6,6 +6,42 @@
 
 本ドキュメントは、Azure Cloud Adoption Framework のランディングゾーン概念に基づき、FISC安全対策基準に準拠した金融機関向けAzureランディングゾーンのリファレンスアーキテクチャを示します。
 
+## システム別ランディングゾーン一覧
+
+各金融システムの特性に応じた個別ランディングゾーン設計ガイダンスを用意しています。
+
+### 基幹系システム
+
+| システム | 重要度 | FISC外部性 | ドキュメント |
+|---------|-------|-----------|------------|
+| 勘定系（コアバンキング） | Tier 1 | 重大な外部性 | [core-banking.md](core-banking.md) |
+| 為替・決済系 | Tier 1 | 重大な外部性 | [payment-settlement.md](payment-settlement.md) |
+| 融資系 | Tier 2 | 機微性 | [lending.md](lending.md) |
+| 市場系・トレーディング | Tier 1〜2 | 業態による | [market-trading.md](market-trading.md) |
+| 対外接続系（全銀/SWIFT等） | Tier 1 | 重大な外部性 | [external-connectivity.md](external-connectivity.md) |
+
+### チャネル系システム
+
+| システム | 重要度 | FISC外部性 | ドキュメント |
+|---------|-------|-----------|------------|
+| インターネットバンキング | Tier 2〜3 | 判断による | [internet-banking.md](internet-banking.md) |
+| モバイルバンキング | Tier 2〜3 | 判断による | [mobile-banking.md](mobile-banking.md) |
+| ATM系 | Tier 2〜3 | 判断による | [atm.md](atm.md) |
+
+### 情報・管理系システム
+
+| システム | 重要度 | FISC外部性 | ドキュメント |
+|---------|-------|-----------|------------|
+| 情報系・DWH/BI | Tier 3 | なし | [dwh-bi.md](dwh-bi.md) |
+| リスク管理系 | Tier 2〜3 | なし | [risk-management.md](risk-management.md) |
+| AML/KYC（マネロン対策） | Tier 2 | 機微性 | [aml-kyc.md](aml-kyc.md) |
+
+### イノベーション基盤
+
+| システム | 重要度 | FISC外部性 | ドキュメント |
+|---------|-------|-----------|------------|
+| AI・生成AI基盤 | Tier 3〜4 | 用途による | [ai-platform.md](ai-platform.md) |
+
 ## アーキテクチャ全体像
 
 ```

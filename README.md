@@ -43,7 +43,24 @@ Azure Cloud Adoption Framework（CAF）の導入方法論と Well-Architected Fr
 
 | ドキュメント | 概要 |
 |------------|------|
-| [FSI向けAzureランディングゾーン](landing-zone/reference-architecture.md) | FISC準拠のAzureランディングゾーン設計 |
+| [FSI向けAzureランディングゾーン](landing-zone/reference-architecture.md) | 全体アーキテクチャ・システム一覧 |
+
+#### システム別ランディングゾーン
+
+| 区分 | システム | 重要度 | ドキュメント |
+|------|---------|-------|------------|
+| 基幹系 | 勘定系（コアバンキング） | Tier 1 | [core-banking.md](landing-zone/core-banking.md) |
+| 基幹系 | 為替・決済系 | Tier 1 | [payment-settlement.md](landing-zone/payment-settlement.md) |
+| 基幹系 | 融資系 | Tier 2 | [lending.md](landing-zone/lending.md) |
+| 基幹系 | 市場系・トレーディング | Tier 1〜2 | [market-trading.md](landing-zone/market-trading.md) |
+| 基幹系 | 対外接続系（全銀/SWIFT等） | Tier 1 | [external-connectivity.md](landing-zone/external-connectivity.md) |
+| チャネル系 | インターネットバンキング | Tier 2〜3 | [internet-banking.md](landing-zone/internet-banking.md) |
+| チャネル系 | モバイルバンキング | Tier 2〜3 | [mobile-banking.md](landing-zone/mobile-banking.md) |
+| チャネル系 | ATM系 | Tier 2〜3 | [atm.md](landing-zone/atm.md) |
+| 情報系 | DWH/BI | Tier 3 | [dwh-bi.md](landing-zone/dwh-bi.md) |
+| 情報系 | リスク管理 | Tier 2〜3 | [risk-management.md](landing-zone/risk-management.md) |
+| 情報系 | AML/KYC（マネロン対策） | Tier 2 | [aml-kyc.md](landing-zone/aml-kyc.md) |
+| AI基盤 | AI・生成AI基盤 | Tier 3〜4 | [ai-platform.md](landing-zone/ai-platform.md) |
 
 ## FISC基準とAzure WAF 5つの柱の対応
 
