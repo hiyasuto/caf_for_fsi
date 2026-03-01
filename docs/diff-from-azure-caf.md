@@ -4,8 +4,6 @@
 
 本リポジトリは、Microsoft が提供する Azure Cloud Adoption Framework（CAF）および Well-Architected Framework（WAF）を基盤としつつ、FISC 安全対策基準・解説書（第13版、2025年3月）に準拠するための金融機関固有の拡張を行ったフレームワークです。標準の Azure CAF はクラウド導入方法論（Strategy / Plan / Ready / Adopt / Govern / Manage）を、Azure WAF はアーキテクチャの5つの柱（信頼性・セキュリティ・コスト最適化・オペレーショナルエクセレンス・パフォーマンス効率）を提供しますが、いずれも FISC 安全対策基準への対応を具体的にカバーしていません。本リポジトリはそのギャップを埋めるものです。
 
-> **注:** AWS における [BLEA for FSI](https://github.com/aws-samples/baseline-environment-on-aws-for-financial-services-institute) が標準 BLEA に対して金融固有の差分を追加しているのと同様のアプローチです。
-
 ---
 
 ## 標準 Azure CAF/WAF と本フレームワークの関係
@@ -141,7 +139,6 @@ FISC準拠 金融機関向け Azure CAF（本リポジトリ）
 | Azure Well-Architected Framework | [learn.microsoft.com/azure/well-architected/](https://learn.microsoft.com/azure/well-architected/) |
 | Azure Landing Zones (ALZ) | [learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/) |
 | ALZ Bicep モジュール（GitHub） | [github.com/Azure/ALZ-Bicep](https://github.com/Azure/ALZ-Bicep) |
-| AWS BLEA for FSI（比較参考） | [github.com/aws-samples/baseline-environment-on-aws-for-financial-services-institute](https://github.com/aws-samples/baseline-environment-on-aws-for-financial-services-institute) |
 | FISC 金融情報システムセンター | [fisc.or.jp](https://www.fisc.or.jp/) |
 
 ---
