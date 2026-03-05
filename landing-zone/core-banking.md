@@ -203,15 +203,15 @@
 
 | コンポーネント | Azureサービス | FISC基準 |
 |-------------|-------------|---------|
-| 暗号鍵管理 | Azure Key Vault Managed HSM | 実13（FIPS 140-2 Level 3） |
+| 暗号鍵管理 | Azure Key Vault Managed HSM | 実13（FIPS 140-3 Level 3） |
 | DB暗号化 | TDE + 顧客管理キー（CMK） | 実3（蓄積データ保護） |
 | ネットワーク分離 | Private Endpoint + NSG | 実15（接続機器最小化） |
 | WAF | Azure Front Door WAF | 実14（不正侵入防止） |
-| DDoS | Azure DDoS Protection Standard | 実14（不正侵入防止） |
+| DDoS | Azure DDoS Network Protection | 実14（不正侵入防止） |
 | コンテナセキュリティ | Microsoft Defender for Containers | 実14（コンテナイメージ脆弱性スキャン） |
-| Confidential Computing | DCsv3 VM / Always Encrypted with Secure Enclaves | 実3（最高機密データの処理中暗号化） |
+| Confidential Computing | DCasv5 / DCesv5 VM / Always Encrypted with Secure Enclaves | 実3（最高機密データの処理中暗号化） |
 
-> **Confidential Computing（オプション）**: 勘定系の最高機密データ（口座残高、取引明細等）に対して、処理中（In-Use）の暗号化が必要な場合は [Azure Confidential Computing](https://learn.microsoft.com/azure/confidential-computing/overview) の採用を検討してください。Always Encrypted with Secure Enclaves により、SQL MI 上でデータを復号せずにクエリ実行が可能です。AKS ノードに Confidential VM（DCsv3）を使用することで、アプリケーションメモリの暗号化も実現できます。
+> **Confidential Computing（オプション）**: 勘定系の最高機密データ（口座残高、取引明細等）に対して、処理中（In-Use）の暗号化が必要な場合は [Azure Confidential Computing](https://learn.microsoft.com/azure/confidential-computing/overview) の採用を検討してください。Always Encrypted with Secure Enclaves により、SQL MI 上でデータを復号せずにクエリ実行が可能です。AKS ノードに Confidential VM（DCasv5 / DCesv5）を使用することで、アプリケーションメモリの暗号化も実現できます。
 
 ### デプロイメントスタンプ（Scale Unit）
 
